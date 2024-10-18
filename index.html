@@ -95,7 +95,7 @@
     <div class="container">
         <h1 id="greeting">Hello, Your Welcome to Our WebSite</h1>
         <ul id="menu">
-            <li id="great" class="cv-item">CV</li>
+            <li class="cv-item"> <a href="https://ibrahimzitouni.github.io/personalcv/">CV</a></li>
         </ul>
     </div>
 
@@ -107,11 +107,6 @@
             // Animate greeting
             greeting.style.animation = 'fadeInDown 1s ease-out, pulse 2s infinite';
             // ..................................................................... //
-            menu.addEventListener('click', (e) => {
-                if (e.target.tagName === 'LI') {
-                    window.location.href = "https://ibrahimzitouni.github.io/personalcv/";
-                }
-            });
     </script>
 </body>
 </html>
