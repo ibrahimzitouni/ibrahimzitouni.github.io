@@ -3,118 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ibrahim Zitouni's Website</title>
+    <title>Ibrahim Zitouni Website</title>
     <style>
-        :root {
-            --primary-color: #3498db;
-            --secondary-color: #2c3e50;
-            --background-color: #ecf0f1;
-            --text-color: #34495e;
-            --active-color: #e74c3c;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
             line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--background-color);
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
 
         .container {
-            width: 80%;
-            margin: 0 auto;
-            overflow: hidden;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
         }
 
-        header {
-            background-color: var(--primary-color);
-            color: white;
+        h1 {
+            color: #2c3e50;
             text-align: center;
-            padding: 1rem 0;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            animation: fadeInDown 1s ease-out;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-
-        nav {
-            background-color: var(--secondary-color);
-            padding: 0.5rem 0;
-        }
-
-        nav ul {
+        ul {
             list-style-type: none;
             padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
         }
 
-        nav ul li {
-            margin: 0 1rem;
+        li {
+            background-color: #ecf0f1;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: color 0.3s ease;
+        li:hover {
+            background-color: #3498db;
+            color: #ffffff;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
-        nav ul li a:hover {
-            color: var(--primary-color);
+        .cv-item {
+            background-color: #2ecc71;
+            color: #ffffff;
         }
 
-        nav ul li a.active {
-            color: var(--active-color);
+        .cv-item:hover {
+            background-color: #27ae60;
         }
 
-        main {
-            padding: 2rem 0;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                width: 95%;
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
             }
-
-            header h1 {
-                font-size: 2rem;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
+        }
 
-            nav ul {
-                flex-direction: column;
-                align-items: center;
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
             }
-
-            nav ul li {
-                margin: 0.5rem 0;
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Hello, Welcome to Ibrahim Zitouni's Website</h1>
-        </div>
-    </header>
-    <nav>
-        <div class="container">
-            <ul>
-                <li><a href="https://ibrahimzitouni.github.io/personalcv/">CV</a></li>
-            </ul>
-        </div>
-    </nav>
-    <main>
-        <div class="container">
-            <h2>Welcome to my personal website!</h2>
-            <p>This is where you can find information about me, my projects, and my professional experience.</p>
-        </div>
-    </main>
+    <div class="container">
+        <h1 id="greeting">Hello, Your Welcome to Our WebSite</h1>
+        <ul id="menu">
+            <li class="cv-item">CV</li>
+        </ul>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const greeting = document.getElementById('greeting');
+            const menu = document.getElementById('menu');
+
+            // Animate greeting
+            greeting.style.animation = 'fadeInDown 1s ease-out, pulse 2s infinite';
+
+            // Add more menu items dynamically
+            const menuItems = ['Projects', 'Skills', 'Contact'];
+            menuItems.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                menu.appendChild(li);
+            });
+
+            // Add click event to menu items
+            menu.addEventListener('click', (e) => {
+                if (e.target.tagName === 'LI') {
+                    alert(`You clicked on ${e.target.textContent}`);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
