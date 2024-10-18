@@ -107,22 +107,6 @@
 
             // Animate greeting
             greeting.style.animation = 'fadeInDown 1s ease-out, pulse 2s infinite';
-
-            // Add more menu items dynamically
-            const menuItems = ['Projects', 'Skills', 'Contact'];
-            menuItems.forEach(item => {
-                const li = document.createElement('li');
-                li.textContent = item;
-                menu.appendChild(li);
-            });
-
-            // Add click event to menu items
-            menu.addEventListener('click', (e) => {
-                if (e.target.tagName === 'LI') {
-                    alert(`You clicked on ${e.target.textContent}`);
-                }
-            });
-        });
     </script>
 </body>
 </html>
